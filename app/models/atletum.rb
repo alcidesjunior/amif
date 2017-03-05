@@ -1,0 +1,2 @@
+class Atletum < ApplicationRecord
+end

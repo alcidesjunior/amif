@@ -1,0 +1,26 @@
+@import "materialize/components/color";
+$primary-color: color("blue-grey","darken-2") !default;
+$secondary-color: color("green", "accent-4") !default;
+@import 'materialize';
+@import "https://fonts.googleapis.com/icon?family=Material+Icons";
+picture{
+  margin:80px;
+}
+.logo{
+  width: 400px !important;
+  display: block;
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+.half_display{
+  margin-top:10%
+}
+body{
+  // background-color: lightgray
+}
+.login{
+  padding:100px;
+  border-radius:10px;
+  background-color:white;
+  box-shadow: 1px 1px 8px 1px #191919
+}

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @professor.nome %>
+</p>
+
+<p>
+  <strong>Sobrenome:</strong>
+  <%= @professor.sobrenome %>
+</p>
+
+<p>
+  <strong>Modalidade:</strong>
+  <%= Modalidade.find_by_id(@professor.modalidades_id).nome %>
+</p>
+
+<p>
+  <strong>Graduacao:</strong>
+  <%= @professor.graduacao %>
+</p>
+
+<%= link_to 'Edit', edit_professor_path(@professor) %> |
+<%= link_to 'Back', professors_path %>

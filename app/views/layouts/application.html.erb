@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Amif</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="/assets/stylesheet/animate.min.css">
+  </head>
+
+  <body>
+    <% if user_signed_in? %>
+    <!-- SIDE MENU LATERAL-->
+    <ul id="slide-out" class="side-nav">
+      <li>
+        <div class="userView">
+        <div class="background">
+          <!-- <img src="<%=root_url%>assets/images/logo.jpg" width="75"> -->
+        </div>
+          <a href="/"><center><img class="circle" src="<%=current_user.foto%>"></center></a>
+          <a href="/" align="center"><span class="black-text name"><%="#{current_user.nome} #{current_user.sobrenome}"%></span></a>
+          <a href="/" align="center"><span class="black-text email"><%=current_user.email%></span></a>
+        </div>
+      </li>
+      <li><a href="/atleta"><i class="material-icons">directions_run</i>Atletas</a></li>
+      <li><a href="/professors"><i class="material-icons">school</i>Professores</a></li>
+      <li><a href="/modalidades"><i class="material-icons">style</i>Modalidades</a></li>
+
+      <li><div class="divider"></div></li>
+    </ul>
+    <!-- FIM SIDE MENU LATERAL -->
+    <!-- DROPDOWN MENU CONFIGURAÇÕES -->
+    <ul id="dropdown1" class="dropdown-content">
+      <li><%= link_to 'Editar perfil', "/profile/#{current_user.id}"%></li>
+      <li class="divider"></li>
+      <li><%= link_to "Sair", destroy_user_session_path, method: :delete%></li>
+    </ul>
+    <nav>
+      <div class="nav-wrapper">
+        <a  class="brand-logo" data-activates="slide-out"><i class="material-icons md-48">menu</i>AMIF</a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#"><%= current_user.email %></a></li>
+          <!-- <li><a href="badges.html">Components</a></li> -->
+          <!-- Dropdown Trigger -->
+          <li><a class="dropdown-button" href="#!" data-activates="dropdown1">Configurações<i class="material-icons right">arrow_drop_down</i></a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- FIM DROPDOWN MENU CONFIGURAÇÕE -->
+  <% end %>
+    <%= yield %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <% if notice %>
+<script type="text/javascript">
+Materialize.toast('<%= notice %>', 4000)
+</script>
+<% end %>
+<% if alert %>
+<script type="text/javascript">
+Materialize.toast('<%= alert %>', 4000)
+</script>
+<% end %>
+  </body>
+</html>

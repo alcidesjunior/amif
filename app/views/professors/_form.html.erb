@@ -1,0 +1,43 @@
+<%= form_for(professor) do |f| %>
+  <% if professor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(professor.errors.count, "error") %> prohibited this professor from being saved:</h2>
+
+      <ul>
+      <% professor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %>
+    <%= f.text_field :nome %>
+  </div>
+
+  <div class="field">
+    <%= f.label :sobrenome %>
+    <%= f.text_field :sobrenome %>
+  </div>
+
+  <div class="field">
+    <%= f.label :modalidade %>
+    <div class="input-field col s12">
+    <select name="professor[modalidades_id]">
+      <%=Modalidade.all.each do |m|%>
+      <option value="<%=m.id%>"><%=m.nome%></option>
+      <%end%>
+    </select>
+  </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :graduacao %>
+    <%= f.text_field :graduacao %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
