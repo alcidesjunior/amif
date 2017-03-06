@@ -18,7 +18,7 @@
       <tr>
         <td><%= professor.nome %></td>
         <td><%= professor.sobrenome %></td>
-        <td><%= Modalidade.find_by_id(professor.modalidades_id).nome %></td>
+        <td><%= Modalidade.find_by_id(professor.modalidades_id).nome if Modalidade.find_by_id(professor.modalidades_id) != nil%></td>
         <td><%= professor.graduacao %></td>
         <td><%= link_to 'Show', professor %></td>
         <td><%= link_to 'Edit', edit_professor_path(professor) %></td>

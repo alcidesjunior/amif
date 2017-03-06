@@ -10,34 +10,36 @@
       </ul>
     </div>
   <% end %>
+  <div class="row">
+    <div class="col s6">
+      <%= f.label :nome %>
+      <%= f.text_field :nome %>
+    </div>
 
-  <div class="field">
-    <%= f.label :nome %>
-    <%= f.text_field :nome %>
+    <div class="col s6">
+      <%= f.label :sobrenome %>
+      <%= f.text_field :sobrenome %>
+    </div>
   </div>
+  <div class="row">
+    <div class="col s6">
+      <%= f.label :modalidade %>
+        <select name="professor[modalidades_id]">
+          <%=Modalidade.all.each do |m|%>
+          <option value="<%=m.id%>" <%="selected" if @professor.modalidades_id == m.id%>> <%=m.nome%></option>
+          <%end%>
+        </select>
+    </div>
 
-  <div class="field">
-    <%= f.label :sobrenome %>
-    <%= f.text_field :sobrenome %>
+    <div class="col s6">
+      <%= f.label :graduacao %>
+      <%= f.text_field :graduacao %>
+    </div>
   </div>
+  <div class="row">
+    <div class="col s6">
 
-  <div class="field">
-    <%= f.label :modalidade %>
-    <div class="input-field col s12">
-    <select name="professor[modalidades_id]">
-      <%=Modalidade.all.each do |m|%>
-      <option value="<%=m.id%>"><%=m.nome%></option>
-      <%end%>
-    </select>
-  </div>
-  </div>
-
-  <div class="field">
-    <%= f.label :graduacao %>
-    <%= f.text_field :graduacao %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+      <%= f.submit "Salvar", class: "btn waves waves-effect" %>
+    </div>
   </div>
 <% end %>
