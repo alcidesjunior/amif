@@ -5,7 +5,7 @@ class AtletaController < ApplicationController
   # GET /atleta
   # GET /atleta.json
   def index
-    @atleta = Atletum.all
+    @atleta = Atletum.all.paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /atleta/1

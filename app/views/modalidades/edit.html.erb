@@ -1,6 +1,7 @@
-<h1>Editing Modalidade</h1>
+<div style="margin-left:200px">
+<%= link_to 'Voltar', modalidades_path %> |
+<%= link_to 'Ver', @modalidade %>
+</div>
+<h1 style="margin-left:200px">Editar Modalidade</h1>
 
 <%= render 'form', modalidade: @modalidade %>
-
-<%= link_to 'Show', @modalidade %> |
-<%= link_to 'Back', modalidades_path %>

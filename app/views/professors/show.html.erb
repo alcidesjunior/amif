@@ -1,24 +1,33 @@
 <p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col s12 m4">
+    <div class="card amber lighten-3">
+      <div class="card-content black-text">
+        <span class="card-title"><b>Ficha do professor</b></span>
+          <p>
+            <strong>Nome:</strong>
+            <%= @professor.nome %>
+          </p>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @professor.nome %>
-</p>
+          <p>
+            <strong>Sobrenome:</strong>
+            <%= @professor.sobrenome %>
+          </p>
 
-<p>
-  <strong>Sobrenome:</strong>
-  <%= @professor.sobrenome %>
-</p>
+          <p>
+            <strong>Modalidade:</strong>
+            <%= Modalidade.find_by_id(@professor.modalidades_id).nome %>
+          </p>
 
-<p>
-  <strong>Modalidade:</strong>
-  <%= Modalidade.find_by_id(@professor.modalidades_id).nome %>
-</p>
-
-<p>
-  <strong>Graduacao:</strong>
-  <%= @professor.graduacao %>
-</p>
-
-<%= link_to 'Edit', edit_professor_path(@professor) %> |
-<%= link_to 'Back', professors_path %>
+          <p>
+            <strong>Graduacao:</strong>
+            <%= @professor.graduacao %>
+          </p>
+        </div>
+      <div class="card-action">
+        <%= link_to 'Voltar', professors_path, class:"blue-text" %> |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <%= link_to 'Editar', edit_professor_path(@professor), class:"green-text" %>
+      </div>
+    </div>
+  </div>
+</div>

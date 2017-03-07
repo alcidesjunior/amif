@@ -35,19 +35,19 @@
           <strong>Nacionalidade:</strong>
           <%= @atletum.nacionalidade %>
         </p>
+
         <p>
           <strong>Professor:</strong>
-        >>  <%=@atletum.professors_id%>
           <%= Professor.find_by_id(@atletum.professors_id).nome if Professor.find_by_id(@atletum.professors_id) != nil %>
         </p>
         <p>
           <strong>Modalidade:</strong>
-          <%= Modalidade.find_by_id(@atletum.nacionalidade).nome if Modalidade.find_by_id(@atletum.professors_id) != nil%>
+          <%=Modalidade.find_by_id(@atletum.modalidades_id).nome if Modalidade.find_by_id(@atletum.modalidades_id) != nil%>
         </p>
       </div>
       <div class="card-action">
-        <%= link_to 'Editar', edit_atletum_path(@atletum), class:"blue-text" %> |
-        <%= link_to 'Voltar', atleta_path, class:"black-text" %>
+        <%= link_to 'Voltar', atleta_path, class:"blue-text" %> |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <%= link_to 'Editar', edit_atletum_path(@atletum), class:"green-text" %>
       </div>
     </div>
   </div>

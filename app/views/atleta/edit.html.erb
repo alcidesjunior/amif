@@ -1,6 +1,6 @@
 <div class="container">
-<h1>Editing Atletum</h1>
+<%= link_to 'Voltar', atleta_path %>  |
+<%= link_to 'Ver', @atletum %>
+<h1>Editar atleta</h1>
 <%= render 'form', atletum: @atletum %>
 </div>
-<%= link_to 'Show', @atletum %> |
-<%= link_to 'Back', atleta_path %>

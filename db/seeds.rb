@@ -5,4 +5,5 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-User.create(:nome=>"Alcides",:sobrenome=>"Junior",:email=>"alcides@jr.com",:password=>"qweqwe",:user_type=> 1)
+modal  = Modalidade.create(:nome=>"Jiu-Jitsu")
+User.create(:nome=>"Admin",:sobrenome=>"",:email=>"adm@ifce.com",:password=>"qweqwe",:user_type=> 1,:modalidades_id=>modal.id)

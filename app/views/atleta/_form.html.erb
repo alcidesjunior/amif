@@ -10,7 +10,6 @@
       </ul>
     </div>
   <% end %>
-
   <div class="row">
     <div class="col s6">
       <%= f.label :nome %>
@@ -21,8 +20,6 @@
       <%= f.text_field :sobrenome %>
     </div>
   </div>
-
-
   <div class="row">
     <div class="col s6">
       <%= f.label :data_nascimento %>
@@ -48,17 +45,17 @@
   <div class="row">
     <div class="col s6">
       <%= f.label :professor%>
-    <select name="professor[professors_id]">
+    <select name="atletum[professors_id]">
       <%Professor.all.each do |p|%>
-      <option value="<%=p.id%>" <%="selected" if @atletum.professors_id=p.id%>><%=p.nome%></option>
+      <option value="<%=p.id%>" <%="selected" if @atletum.professors_id==p.id && request.fullpath !="/atleta/new"%>><%=p.nome%></option>
       <%end%>
     </select>
     </div>
     <div class="col s6">
       <%= f.label :modalidade %>
-      <select name="professor[modalidades_id]">
+      <select name="atletum[modalidades_id]">
         <%Modalidade.all.each do |m|%>
-        <option value="<%=m.id%>" <%="selected" if @atletum.modalidades_id=m.id%>><%=m.nome%></option>
+        <option value="<%=m.id%>" <%="selected" if @atletum.modalidades_id==m.id && request.fullpath !="/atleta/new"%>><%=m.nome%></option>
         <%end%>
       </select>
     </div>

@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20170305181635) do
     t.string   "foto_content_type"
     t.integer  "foto_file_size"
     t.datetime "foto_updated_at"
+    t.integer  "modalidades_id"
     t.integer  "user_type"
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"

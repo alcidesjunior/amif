@@ -1,3 +1,4 @@
+<div class="container">
 <%= form_for(modalidade) do |f| %>
   <% if modalidade.errors.any? %>
     <div id="error_explanation">
@@ -10,13 +11,16 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+<div class="row">
+  <div class="col s4">
     <%= f.label :nome %>
     <%= f.text_field :nome %>
   </div>
-
-  <div class="actions">
-    <%= f.submit %>
+</div>
+<div class="row">
+  <div class="col s4">
+    <%= f.submit "Salvar",class:"btn waves waves-effect"%>
   </div>
+</div>
+</div>
 <% end %>

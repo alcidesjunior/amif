@@ -28,6 +28,8 @@ gem 'devise-i18n'
 # paperclip
 gem 'paperclip'
 # materialize
+gem 'will_paginate'
+gem 'will_paginate-materialize'
 gem 'materialize-sass'
 # animete css
 gem "animate-rails"

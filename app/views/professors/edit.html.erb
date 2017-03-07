@@ -1,7 +1,7 @@
 <div class="container">
-<h1>Editing Professor</h1>
+<%= link_to 'Voltar', professors_path %> |
+<%= link_to 'Ver', @professor %>
+<h1>Editar professor</h1>
 <%= render 'form', professor: @professor %>
 
-<%= link_to 'Show', @professor %> |
-<%= link_to 'Back', professors_path %>
 </div>

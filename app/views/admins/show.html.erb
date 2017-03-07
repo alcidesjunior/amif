@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @admin.nome %>
+</p>
+
+<p>
+  <strong>Sobrenome:</strong>
+  <%= @admin.sobrenome %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @admin.email %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @admin.password %>
+</p>
+
+<p>
+  <strong>Modalidades:</strong>
+  <%= @admin.modalidades_id %>
+</p>
+
+<p>
+  <strong>User type:</strong>
+  <%= @admin.user_type %>
+</p>
+
+<%= link_to 'Edit', edit_admin_path(@admin) %> |
+<%= link_to 'Back', admins_path %>

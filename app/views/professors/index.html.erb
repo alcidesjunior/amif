@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Professors</h1>
+<h1>Professores</h1>
 
-<table>
+<table class="striped">
   <thead>
     <tr>
       <th>Nome</th>
       <th>Sobrenome</th>
       <th>Modalidade</th>
-      <th>Graduacao</th>
+      <th>Graduação</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -20,14 +20,15 @@
         <td><%= professor.sobrenome %></td>
         <td><%= Modalidade.find_by_id(professor.modalidades_id).nome if Modalidade.find_by_id(professor.modalidades_id) != nil%></td>
         <td><%= professor.graduacao %></td>
-        <td><%= link_to 'Show', professor %></td>
-        <td><%= link_to 'Edit', edit_professor_path(professor) %></td>
-        <td><%= link_to 'Destroy', professor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', professor %></td>
+        <td><%= link_to 'Editar', edit_professor_path(professor) %></td>
+        <td><%= link_to 'Excluir', professor, method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Professor', new_professor_path %>
+<div class="fixed-action-btn vertical ">
+  <a href="/professors/new" class="btn-floating btn-large waves-effect waves-light green right"><i class="material-icons">add</i></a>
+</div>

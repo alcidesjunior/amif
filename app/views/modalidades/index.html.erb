@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Modalidades</h1>
+<h1 style="margin-left:200px">Modalidades</h1>
 
-<table>
+<table class="striped container">
   <thead>
     <tr>
       <th>Nome</th>
@@ -14,9 +14,8 @@
     <% @modalidades.each do |modalidade| %>
       <tr>
         <td><%= modalidade.nome %></td>
-        <td><%= link_to 'Show', modalidade %></td>
-        <td><%= link_to 'Edit', edit_modalidade_path(modalidade) %></td>
-        <td><%= link_to 'Destroy', modalidade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', modalidade %></td>
+        <td><%= link_to 'Editar', edit_modalidade_path(modalidade) %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +23,6 @@
 
 <br>
 
-<%= link_to 'New Modalidade', new_modalidade_path %>
+<div class="fixed-action-btn vertical ">
+  <a href="/modalidades/new" class="btn-floating btn-large waves-effect waves-light green right"><i class="material-icons">add</i></a>
+</div>
