@@ -17,11 +17,13 @@ class AdminsController < ApplicationController
   def new
     @admin = User.new
     @url = "/admins"
+    @action = "new"
   end
 
   # GET /admins/1/edit
   def edit
-    @url = "/admins/#{params[:id]}/edit"
+    @url = "/admins/#{params[:id]}"
+    @action = "edit"
   end
 
   # POST /admins

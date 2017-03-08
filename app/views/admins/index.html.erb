@@ -22,7 +22,7 @@
         <td><%= admin.email %></td>
         <td><%= Modalidade.find_by_id(admin.modalidades_id).nome %></td>
         <td><%= admin.user_type %></td>
-        <td></td>
+        <td><a href="/admins/<%=admin.id%>/edit">Editar</a></td>
         <td></td>
         <td></td>
       </tr>
@@ -31,3 +31,6 @@
 </table>
 
 <br>
+<div class="fixed-action-btn vertical ">
+  <a href="/admins/new" class="btn-floating btn-large waves-effect waves-light green right"><i class="material-icons">add</i></a>
+</div>

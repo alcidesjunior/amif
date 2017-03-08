@@ -10,16 +10,17 @@
     <%= f.text_field :sobrenome %>
   </div>
 </div>
-  <div class="field">
+<div class="row">
+  <div class="col s6">
     <%= f.label :email %>
     <%= f.text_field :email %>
   </div>
 
-  <div class="field">
+  <div class="col s6">
     <%= f.label :password %>
     <%= f.password_field :password %>
   </div>
-
+</div>
   <div class="field">
     <%= f.label :modalidades_id %>
     <select name="admin[modalidades_id]">
