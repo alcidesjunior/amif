@@ -1,26 +1,15 @@
-<%= form_for(admin) do |f| %>
-  <% if admin.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(admin.errors.count, "error") %> prohibited this admin from being saved:</h2>
-
-      <ul>
-      <% admin.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
+<%= form_for(:admin, :url=>@url) do |f| %>
+<div class="row">
+  <div class="col s6">
     <%= f.label :nome %>
     <%= f.text_field :nome %>
   </div>
 
-  <div class="field">
+  <div class="col s6">
     <%= f.label :sobrenome %>
     <%= f.text_field :sobrenome %>
   </div>
-
+</div>
   <div class="field">
     <%= f.label :email %>
     <%= f.text_field :email %>
@@ -28,20 +17,23 @@
 
   <div class="field">
     <%= f.label :password %>
-    <%= f.text_field :password %>
+    <%= f.password_field :password %>
   </div>
 
   <div class="field">
     <%= f.label :modalidades_id %>
-    <%= f.number_field :modalidades_id %>
+    <select name="admin[modalidades_id]">
+      <%Modalidade.all.each do |m|%>
+      <option value="<%=m.id%>" ><%=m.nome%></option>
+      <%end%>
+    </select>
   </div>
 
   <div class="field">
-    <%= f.label :user_type %>
-    <%= f.number_field :user_type %>
+    <%= f.hidden_field :user_type, value: 0 %>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Salvar", class: "btn waves waves-effect"%>
   </div>
 <% end %>
