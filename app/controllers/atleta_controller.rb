@@ -5,7 +5,11 @@ class AtletaController < ApplicationController
   # GET /atleta
   # GET /atleta.json
   def index
-    @atleta = Atletum.where(:modalidades_id=>current_user.modalidades_id).paginate(:page => params[:page], :per_page => 10)
+    if current_user.user_type != 1
+      @atleta = Atletum.where(:modalidades_id=>current_user.modalidades_id).order('nome ASC').paginate(:page => params[:page], :per_page => 10)
+    else
+      @atleta = Atletum.all.order('nome ASC').paginate(:page => params[:page], :per_page => 10)
+    end
   end
 
   # GET /atleta/1

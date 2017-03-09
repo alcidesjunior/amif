@@ -1,4 +1,7 @@
-<%= form_for(:admin, :url=>@url) do |f| %>
+<%= form_for(:admin, :url=>@url,:multipart=>true) do |f| %>
+<%if @action=="edit"%>
+<input name="_method" type="hidden" value="put" />
+<%end%>
 <div class="row">
   <div class="col s6">
     <%= f.label :nome %>
@@ -21,17 +24,33 @@
     <%= f.password_field :password %>
   </div>
 </div>
-  <div class="field">
+<div class="row">
+  <div class="col s6">
     <%= f.label :modalidades_id %>
     <select name="admin[modalidades_id]">
       <%Modalidade.all.each do |m|%>
-      <option value="<%=m.id%>" ><%=m.nome%></option>
+      <option value="<%=m.id%>" <%= "selected" if @action=="edit" && m.id== admin.modalidades_id%>><%=m.nome%></option>
       <%end%>
     </select>
   </div>
-
+  <div class="col s6">
+    <div class="file-field input-field">
+      <div class="btn">
+        <span>Anexar foto</span>
+        <%=f.file_field :foto%>
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+    </div>
+  </div>
+</div>
   <div class="field">
+    <%if @action=="edit"%>
+    <%= f.hidden_field :user_type,:value=>admin.user_type%>
+    <%else%>
     <%= f.hidden_field :user_type, value: 0 %>
+    <%end%>
   </div>
 
   <div class="actions">

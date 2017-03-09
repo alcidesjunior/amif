@@ -27,7 +27,9 @@
       <li><a href="/atleta"><i class="material-icons">directions_run</i>Atletas</a></li>
       <li><a href="/professors"><i class="material-icons">school</i>Professores</a></li>
       <li><a href="/modalidades"><i class="material-icons">style</i>Modalidades</a></li>
-
+      <% if current_user.user_type == 1%>
+      <li><a href="/admins"><i class="material-icons">people</i>Usuários</a></li>
+      <% end %>
       <li><div class="divider"></div></li>
     </ul>
     <!-- FIM SIDE MENU LATERAL -->

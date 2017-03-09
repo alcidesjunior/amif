@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :admins
+  get 'profile/:id', to: 'admins#edit'
   resources :modalidades
   resources :professors
   root "home#index"
