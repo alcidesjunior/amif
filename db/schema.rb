@@ -33,8 +33,12 @@ ActiveRecord::Schema.define(version: 20170305181635) do
 
   create_table "modalidades", force: :cascade do |t|
     t.string   "nome"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "imagem_file_name"
+    t.string   "imagem_content_type"
+    t.integer  "imagem_file_size"
+    t.datetime "imagem_updated_at"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
   end
 
   create_table "professors", force: :cascade do |t|

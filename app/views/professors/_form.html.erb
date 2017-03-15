@@ -1,45 +1,79 @@
-<%= form_for(professor) do |f| %>
-  <% if professor.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(professor.errors.count, "error") %> prohibited this professor from being saved:</h2>
+<script type="text/javascript">
+$(document).ready(function(){
+  var bgmodal = <%=@bgModals%>;
+  // $('.bgProfessor').css('background-image','url('+bgmodal[0].imagem+')');
+  $('#select_modal').change(function(){
+    $('.bgProfessor').css(
+      {
+        "content" : "",
+        "display":"block",
+        "position":"absolute",
+        "top":"0",
+        "left":"0",
+        "background-image" : "url("+bgmodal[(this.value)-1].imagem+")",
+        "background-repeat":"no-repeat",
+        "width":"100%",
+        "height":"100%",
+        "opacity":"0.2",
+        "z-index":"-1"
 
-      <ul>
-      <% professor.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      }
+    );
+    console.log(bgmodal[(this.value)-1].imagem);
+  });
+});
+</script>
+<div class="row">
+  <div class="col s4">
+    <%= form_for(professor) do |f| %>
+      <% if professor.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(professor.errors.count, "error") %> prohibited this professor from being saved:</h2>
+
+          <ul>
+          <% professor.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="row">
-    <div class="col s6">
-      <%= f.label :nome %>
-      <%= f.text_field :nome %>
-    </div>
+      <div class="row">
+        <div class="col s6">
+          <%= f.label :nome %>
+          <%= f.text_field :nome %>
+        </div>
 
-    <div class="col s6">
-      <%= f.label :sobrenome %>
-      <%= f.text_field :sobrenome %>
+        <div class="col s6">
+          <%= f.label :sobrenome %>
+          <%= f.text_field :sobrenome %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s6">
+          <%= f.label :modalidade %>
+            <select name="professor[modalidades_id]" id="select_modal">
+              <%Modalidade.all.each do |m|%>
+              <option value="<%=m.id%>" <%="selected" if @professor.modalidades_id == m.id%>> <%=m.nome%></option>
+              <%end%>
+            </select>
+        </div>
+
+        <div class="col s6">
+          <%= f.label :graduacao %>
+          <%= f.text_field :graduacao %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s6">
+
+          <%= f.submit "Salvar", class: "btn waves waves-effect" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col s8">
+    <div class="bgProfessor">
+      <img src="/modalidades/images/23c6908e1ea5cd5845a68c3e3ae4f4969c656b67.jpg?1489592495" alt="">
     </div>
   </div>
-  <div class="row">
-    <div class="col s6">
-      <%= f.label :modalidade %>
-        <select name="professor[modalidades_id]">
-          <%=Modalidade.all.each do |m|%>
-          <option value="<%=m.id%>" <%="selected" if @professor.modalidades_id == m.id%>> <%=m.nome%></option>
-          <%end%>
-        </select>
-    </div>
-
-    <div class="col s6">
-      <%= f.label :graduacao %>
-      <%= f.text_field :graduacao %>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col s6">
-
-      <%= f.submit "Salvar", class: "btn waves waves-effect" %>
-    </div>
-  </div>
-<% end %>
+</div>

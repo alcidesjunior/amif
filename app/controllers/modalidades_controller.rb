@@ -70,6 +70,6 @@ class ModalidadesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def modalidade_params
-      params.require(:modalidade).permit(:nome)
+      params.require(:modalidade).permit(:nome,:imagem)
     end
 end

@@ -22,7 +22,8 @@
         <td><%= professor.graduacao %></td>
         <td><%= link_to 'Ver', professor %></td>
         <td><%= link_to 'Editar', edit_professor_path(professor) %></td>
-        <td><%= link_to 'Excluir', professor, method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' } %></td>
+        <!-- <td><%= link_to 'Excluir', professor, method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' } %></td> -->
+        <td><%= link_to 'Desabilitar', "/professors/disable/#{professor.id}"%></td>
       </tr>
     <% end %>
   </tbody>

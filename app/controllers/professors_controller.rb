@@ -2,6 +2,13 @@ class ProfessorsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_professor, only: [:show, :edit, :update, :destroy]
 
+  def bgImages
+    @bgModals = []
+    Modalidade.all.order('id asc').each do |z|
+      @bgModals.push({id: z.id,imagem: z.imagem.url(:original)})
+    end
+    @bgModals.to_json.to_s.html_safe
+  end
   # GET /professors
   # GET /professors.json
   def index
@@ -16,10 +23,12 @@ class ProfessorsController < ApplicationController
   # GET /professors/new
   def new
     @professor = Professor.new
+    @bgModals = bgImages()
   end
 
   # GET /professors/1/edit
   def edit
+    @bgModals = bgImages()
   end
 
   # POST /professors
