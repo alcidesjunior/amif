@@ -12,11 +12,12 @@ gem 'rails', '~> 5.0.2'
 gem 'pg', '~> 0.18'
 group :development do
     gem 'capistrano',         require: false
-    gem 'capistrano-rbenv',     require: false
+    gem 'capistrano-rbenv',   require: false
     gem 'capistrano-rails',   require: false
     gem 'capistrano-bundler', require: false
     gem 'capistrano3-puma',   require: false
 end
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
