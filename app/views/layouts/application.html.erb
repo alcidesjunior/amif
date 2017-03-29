@@ -9,7 +9,14 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="/assets/stylesheet/animate.min.css">
   </head>
-
+  <style media="screen">
+    body{
+      background-size: contain;
+      /*background-image: url('/assets/images/background-default.jpg');*/
+      background-position: center;
+      /*opacity: */
+    }
+  </style>
   <body>
     <% if user_signed_in? %>
     <!-- SIDE MENU LATERAL-->
