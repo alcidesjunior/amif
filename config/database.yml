@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: amif_production
-  username: amif
-  password: <%= ENV['AMIF_DATABASE_PASSWORD'] %>
+  database: alcides_production
+  username: alcides
+  password: <%= ENV['ALCIDES_DATABASE_PASSWORD'] %>
