@@ -7,7 +7,7 @@ set :application,     'amif'
 set :user,            'alcides'
 set :puma_threads,    [4, 16]
 set :puma_workers,    0
-set :rbenv_ruby, '1.1.0-2-g4f8925a'
+set :rbenv_ruby#, '1.1.0-2-g4f8925a'
 
 # Don't change these unless you know what you're doing
 set :pty,             true
