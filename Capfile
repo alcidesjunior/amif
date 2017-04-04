@@ -13,7 +13,7 @@ require 'capistrano/rbenv'
 
 # config/deploy.rb
 set :rbenv_type, :user # or :system, depends on your rbenv setup
-set :rbenv_ruby, '2.0.0-p247'
+set :rbenv_ruby, '1.1.0-2-g4f8925a'
 
 # in case you want to set ruby version from the file:
 # set :rbenv_ruby, File.read('.ruby-version').strip
