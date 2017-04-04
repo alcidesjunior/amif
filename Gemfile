@@ -11,14 +11,14 @@ gem 'rails', '~> 5.0.2'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 group :development do
-    gem 'capistrano',         require: false
-    gem 'capistrano-rbenv',   require: false
+    # gem 'capistrano',         require: false
+    gem 'capistrano', '~> 3.1'
+    gem 'capistrano-rbenv', '~> 2.0'
     gem 'capistrano-rails',   require: false
     gem 'capistrano-bundler', require: false
     gem 'capistrano3-puma',   require: false
-    gem 'capistrano-postgresql', '~> 4.2.0'
+    gem 'capistrano-postgresql'
 end
-
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
