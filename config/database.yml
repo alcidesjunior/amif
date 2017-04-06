@@ -80,6 +80,10 @@ test:
 #
 production:
   <<: *default
+  host: localhost
+  adapter: postgresql
+  encoding: utf8
   database: amif_production
-  username: alcides
+  pool: 5
+  username: <%= ENV['AMIF_DATABASE_USER']%>
   password: <%= ENV['AMIF_DATABASE_PASSWORD'] %>
