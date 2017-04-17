@@ -16,6 +16,7 @@
 //= require_tree .
 
 $(document).ready(function(){
+  $('input[type="tel"]').mask('(00)00000-0000');
   $(".dropdown-button").dropdown();
   $(".brand-logo").sideNav();
   $('select').material_select();

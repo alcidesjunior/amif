@@ -59,3 +59,10 @@ pt-BR:
       not_saved:
         one: "Não foi possível salvar %{resource}: 1 erro"
         other: "Não foi possível salvar %{resource}: %{count} erros."
+  activerecord:
+    errors:
+      models:
+        atletum:
+          attributes:
+            nome:
+              blank: "não pode ser vazio"

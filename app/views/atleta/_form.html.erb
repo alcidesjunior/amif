@@ -1,19 +1,19 @@
 <%= form_for(atletum) do |f| %>
   <% if atletum.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(atletum.errors.count, "error") %> prohibited this atletum from being saved:</h2>
+      <!-- <h2><%= pluralize(atletum.errors.count, "error") %> prohibited this atletum from being saved:</h2> -->
 
-      <ul>
-      <% atletum.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+      <script type="text/javascript">
+        <% atletum.errors.full_messages.each do |message| %>
+          Materialize.toast('<%= message %>',4000)
+        <% end %>
+      </script>
     </div>
   <% end %>
   <div class="row">
     <div class="col s6">
       <%= f.label :nome %>
-      <%= f.text_field :nome %>
+      <%= f.text_field :nome, required:true %>
     </div>
     <div class="col s6">
       <%= f.label :sobrenome %>
@@ -30,7 +30,16 @@
       <%= f.text_field :sexo %>
     </div>
   </div>
-
+  <div class="row">
+    <div class="col s6">
+      <%= f.label :telefone1, "Telefone 1" %>
+      <%= f.phone_field :telefone1 %>
+    </div>
+    <div class="col s6">
+      <%= f.label :telefone2, "Telefone 2" %>
+      <%= f.phone_field :telefone2 %>
+    </div>
+  </div>
   <div class="row">
       <div class="col s6">
         <%= f.label :email %>
