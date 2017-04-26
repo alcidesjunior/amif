@@ -74,6 +74,6 @@ class AtletaController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def atletum_params
-      params.require(:atletum).permit(:nome, :sobrenome, :data_nascimento,:telefone1,:teleonfe2, :sexo, :email, :nacionalidade, :professors_id, :modalidades_id)
+      params.require(:atletum).permit(:nome, :sobrenome, :data_nascimento,:telefone1,:teleonfe2, :sexo, :email,:categoria, :nacionalidade, :professors_id, :modalidades_id)
     end
 end

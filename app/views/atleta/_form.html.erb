@@ -52,6 +52,22 @@
       </div>
   </div>
   <div class="row">
+      <div class="col s6">
+        <%= f.label :graduacao %>
+        <%= f.text_field :graduacao %>
+      </div>
+
+      <div class="col s6">
+        <%= f.label :categoria %>
+        <select name="atletum[categoria]">
+        <!-- <%= f.text_field :categoria %> -->
+        <<option value="0" <%="selected" if @atletum.categoria==0 && request.fullpath !="/atleta/new"%>>Aluno</option>
+        <option value="1" <%="selected" if @atletum.categoria==1 && request.fullpath !="/atleta/new"%>>Servidor</option>
+        <option value="2" <%="selected" if @atletum.categoria==2 && request.fullpath !="/atleta/new"%>>Com. Externa</option>
+        </select>
+      </div>
+  </div>
+  <div class="row">
     <div class="col s6">
       <%= f.label :professor%>
     <select name="atletum[professors_id]">
