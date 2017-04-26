@@ -12,7 +12,7 @@ class ProfessorsController < ApplicationController
   # GET /professors
   # GET /professors.json
   def index
-    @professors = Professor.all  #if current_user.user_type == 1
+    @professors = Professor.all  if current_user.user_type == 1
   end
 
   # GET /professors/1
@@ -22,7 +22,7 @@ class ProfessorsController < ApplicationController
 
   # GET /professors/new
   def new
-    @professor = Professor.new
+    @professor = Professor.new if current_user.user_type == 1
     @bgModals = bgImages()
   end
 
@@ -34,7 +34,7 @@ class ProfessorsController < ApplicationController
   # POST /professors
   # POST /professors.json
   def create
-    @professor = Professor.new(professor_params)
+    @professor = Professor.new(professor_params) if current_user.user_type == 1
 
     respond_to do |format|
       if @professor.save
@@ -50,13 +50,15 @@ class ProfessorsController < ApplicationController
   # PATCH/PUT /professors/1
   # PATCH/PUT /professors/1.json
   def update
-    respond_to do |format|
-      if @professor.update(professor_params)
-        format.html { redirect_to @professor, notice: 'Professor was successfully updated.' }
-        format.json { render :show, status: :ok, location: @professor }
-      else
-        format.html { render :edit }
-        format.json { render json: @professor.errors, status: :unprocessable_entity }
+    if current_user.user_type == 1
+      respond_to do |format|
+        if @professor.update(professor_params)
+          format.html { redirect_to @professor, notice: 'Professor was successfully updated.' }
+          format.json { render :show, status: :ok, location: @professor }
+        else
+          format.html { render :edit }
+          format.json { render json: @professor.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -64,7 +66,7 @@ class ProfessorsController < ApplicationController
   # DELETE /professors/1
   # DELETE /professors/1.json
   def destroy
-    @professor.destroy
+    @professor.destroy if current_user.user_type == 1
     respond_to do |format|
       format.html { redirect_to professors_url, notice: 'Professor was successfully destroyed.' }
       format.json { head :no_content }

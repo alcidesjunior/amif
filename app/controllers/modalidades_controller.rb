@@ -5,7 +5,7 @@ class ModalidadesController < ApplicationController
   # GET /modalidades
   # GET /modalidades.json
   def index
-    @modalidades = Modalidade.all
+    @modalidades = Modalidade.all if current_user.user_type == 1
   end
 
   # GET /modalidades/1
@@ -15,7 +15,7 @@ class ModalidadesController < ApplicationController
 
   # GET /modalidades/new
   def new
-    @modalidade = Modalidade.new
+    @modalidade = Modalidade.new if current_user.user_type == 1
   end
 
   # GET /modalidades/1/edit
@@ -25,7 +25,7 @@ class ModalidadesController < ApplicationController
   # POST /modalidades
   # POST /modalidades.json
   def create
-    @modalidade = Modalidade.new(modalidade_params)
+    @modalidade = Modalidade.new(modalidade_params) if current_user.user_type == 1
 
     respond_to do |format|
       if @modalidade.save
@@ -41,13 +41,15 @@ class ModalidadesController < ApplicationController
   # PATCH/PUT /modalidades/1
   # PATCH/PUT /modalidades/1.json
   def update
-    respond_to do |format|
-      if @modalidade.update(modalidade_params)
-        format.html { redirect_to @modalidade, notice: 'Modalidade was successfully updated.' }
-        format.json { render :show, status: :ok, location: @modalidade }
-      else
-        format.html { render :edit }
-        format.json { render json: @modalidade.errors, status: :unprocessable_entity }
+    if current_user.user_type == 1
+      respond_to do |format|
+        if @modalidade.update(modalidade_params)
+          format.html { redirect_to @modalidade, notice: 'Modalidade was successfully updated.' }
+          format.json { render :show, status: :ok, location: @modalidade }
+        else
+          format.html { render :edit }
+          format.json { render json: @modalidade.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -55,7 +57,7 @@ class ModalidadesController < ApplicationController
   # DELETE /modalidades/1
   # DELETE /modalidades/1.json
   def destroy
-    @modalidade.destroy
+    @modalidade.destroy if current_user.user_type == 1
     respond_to do |format|
       format.html { redirect_to modalidades_url, notice: 'Modalidade was successfully destroyed.' }
       format.json { head :no_content }
