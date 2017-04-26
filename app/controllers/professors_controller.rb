@@ -12,7 +12,7 @@ class ProfessorsController < ApplicationController
   # GET /professors
   # GET /professors.json
   def index
-    @professors = Professor.all #if current_user.user_type == 1
+    @professors = Professor.all  #if current_user.user_type == 1
   end
 
   # GET /professors/1
