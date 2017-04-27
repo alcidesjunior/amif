@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :galeries
   resources :admins
   get 'profile/:id', to: 'admins#edit'
   resources :modalidades

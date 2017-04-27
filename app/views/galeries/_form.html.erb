@@ -1,0 +1,22 @@
+<%= form_for(galery) do |f| %>
+  <% if galery.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(galery.errors.count, "error") %> prohibited this galery from being saved:</h2>
+
+      <ul>
+      <% galery.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :imagem %>
+    <%= f.file_field :imagem %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

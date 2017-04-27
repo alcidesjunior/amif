@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+<style media="screen">
+  .card{
+    height: 350px;
+  }
+  .card-image  > img{
+    height: 258px !important
+  }
+  .card-content{
+    /*margin-top: 143px !important;*/
+    position:absolute;
+    bottom:0
+  }
+</style>
+<h1>Galeria</h1>
+    <div class="row">
+    <% @galeries.each do |galery| %>
+     <div class="col s4">
+        <div class="card">
+         <div class="card-image waves-effect waves-block waves-light">
+           <img class="activator" src="<%= galery.imagem.url(:medium) %>" style="padding:10px">
+         </div>
+         <div class="card-content">
+           <!-- <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span> -->
+           <p>
+             <%= link_to 'Ver', galery %> |
+             <%= link_to 'Editar', edit_galery_path(galery) %> |
+             <%= link_to 'Apagar', galery, method: :delete, data: { confirm: 'Are you sure?' } %>
+           </p>
+         </div>
+         <div class="card-reveal">
+           <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+           <!-- <p>Here is some more information about this product that is only revealed once clicked on.</p> -->
+         </div>
+       </div>
+     </div>
+    <% end %>
+  </div>
+<%= will_paginate @collection %>
+<br>
+<div class="fixed-action-btn vertical ">
+  <a href="/galeries/new" class="btn-floating btn-large waves-effect waves-light green right"><i class="material-icons">add</i></a>
+</div>
+<!-- <%= link_to 'New Galery', new_galery_path %> -->
