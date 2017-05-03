@@ -26,12 +26,14 @@
     <div class="col s4">
       <h5>Galeria</h5>
       <p align="justify">
+        <%= "Não imagens a serem exibidas no momento" if @galery.count==0%>
+        <%if @galery.count>0%>
         <div class="carousel">
-          <%= "Não imagens a serem exibidas no momento" if @galery.count==0%>
           <%@galery.each do |g|%>
           <a class="carousel-item" href="/galeries"><img src="<%=g.imagem.url(:medium)%>"></a>
           <%end%>
         </div>
+        <%end%>
       </p>
     </div>
   </div>
