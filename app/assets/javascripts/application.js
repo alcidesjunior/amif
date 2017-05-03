@@ -16,7 +16,12 @@
 //= require_tree .
 
 $(document).ready(function(){
-  $('.carousel.carousel-slider').carousel({fullWidth: true});
+  $('.carousel').carousel({padding: 200  });
+  autoplay()
+  function autoplay() {
+      $('.carousel').carousel('next');
+      setTimeout(autoplay, 2000);
+  }
   $('input[type="tel"]').mask('(00)00000-0000');
   $(".dropdown-button").dropdown();
   $(".brand-logo").sideNav();

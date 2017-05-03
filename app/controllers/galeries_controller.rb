@@ -10,21 +10,24 @@ class GaleriesController < ApplicationController
   # GET /galeries/1
   # GET /galeries/1.json
   def show
+    redirect_to "/" if current_user.user_type != 1
   end
 
   # GET /galeries/new
   def new
-    @galery = Galery.new
+    redirect_to "/" if current_user.user_type != 1
+    @galery = Galery.new if current_user.user_type == 1
   end
 
   # GET /galeries/1/edit
   def edit
+    redirect_to "/" if current_user.user_type != 1
   end
 
   # POST /galeries
   # POST /galeries.json
   def create
-    @galery = Galery.new(galery_params)
+    @galery = Galery.new(galery_params) if current_user.user_type == 1
 
     respond_to do |format|
       if @galery.save
@@ -40,13 +43,15 @@ class GaleriesController < ApplicationController
   # PATCH/PUT /galeries/1
   # PATCH/PUT /galeries/1.json
   def update
-    respond_to do |format|
-      if @galery.update(galery_params)
-        format.html { redirect_to @galery, notice: 'Galery was successfully updated.' }
-        format.json { render :show, status: :ok, location: @galery }
-      else
-        format.html { render :edit }
-        format.json { render json: @galery.errors, status: :unprocessable_entity }
+    if current_user.user_type == 1
+      respond_to do |format|
+        if @galery.update(galery_params)
+          format.html { redirect_to @galery, notice: 'Galery was successfully updated.' }
+          format.json { render :show, status: :ok, location: @galery }
+        else
+          format.html { render :edit }
+          format.json { render json: @galery.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -54,7 +59,7 @@ class GaleriesController < ApplicationController
   # DELETE /galeries/1
   # DELETE /galeries/1.json
   def destroy
-    @galery.destroy
+    @galery.destroy if current_user.user_type == 1
     respond_to do |format|
       format.html { redirect_to galeries_url, notice: 'Galery was successfully destroyed.' }
       format.json { head :no_content }
