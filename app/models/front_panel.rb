@@ -1,0 +1,2 @@
+class FrontPanel < ApplicationRecord
+end

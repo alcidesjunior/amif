@@ -1,27 +1,88 @@
+<script type="text/javascript">
+function save_front_panel_content(id,titulo=null,conteudo=null){
+  token = $('input[name="authenticity_token"]').val();
+  if(titulo != null && id != null){
+
+    $.ajax({
+      method: "POST",
+      url:"/saveFrontPanel/"+id,
+      data:{
+        "authenticity_token":token,
+        "frontPanel[titulo]":titulo
+      },
+      beforeSend:function(e){
+
+      },
+      complete:function(e){
+
+      },
+      success:function(e){
+        Materialize.toast(e.message,4000);
+      },
+      error:function(e){
+        Materialize.toast(e.message,4000);
+      }
+    });
+  }
+  if(conteudo != null){
+    $.ajax({
+      method: "POST",
+      url:"/saveFrontPanel/"+id,
+      data:{
+        "authenticity_token":token,
+        "frontPanel[conteudo]":conteudo
+      },
+      beforeSend:function(e){
+
+      },
+      complete:function(e){
+
+      },
+      success:function(e){
+        Materialize.toast(e.message,4000);
+      },
+      error:function(e){
+        Materialize.toast(e.message,4000);
+      }
+    });
+
+  }
+}
+
+ $(function(){
+   <%
+      (1..4).each do |n|
+   %>
+   //seção <%=n%>
+   $('#titulo<%=n%>').dblclick(function(){
+     $(this).attr("contentEditable","true");
+   });
+   $('#titulo<%=n%>').focusout(function(){
+     $(this).removeAttr("contentEditable");
+     //script to save her
+     save_front_panel_content($('#id<%=n%>').val(),$('#titulo<%=n%>').text(),null);
+   });
+   $('#conteudo<%=n%>').dblclick(function(){
+     $(this).attr("contentEditable","true");
+   });
+   $('#conteudo<%=n%>').focusout(function(){
+     $(this).removeAttr("contentEditable");
+     save_front_panel_content($('#id<%=n%>').val(),null,$('#conteudo<%=n%>').text());
+   });
+   <%
+     end
+   %>
+ });
+</script>
+<%= form_for :frontPanel do |f|%>
 <div class="container">
   <div class="row">
     <div class="col s8" >
-      <h5>Sobre o projeto</h5>
-
-      <p align="justify">
-        OBJETIVO GERAL<br>
-        Estimular os alunos do ensino técnico/integrado, do ensino superior,
-        dos funcionários do Instituto Federal e da comunidade externa a
-        vivenciaremos benefícios das artes marciais em suas vidas e nas
-        suas aulas de educação física.
-      </p>
-      <p align="justify">
-        OBJETIVOS ESPECÍFICOS<br>
-        • Pesquisar o estado da arte das artes marciais que melhor se adéquam ao
-        interesse do público-alvo e que tenham o seu direcionamento teórico
-        condizente com a proposta pedagógica;<br>
-        • Selecionar as modalidades de artes marciais adequadas ao atual
-        contexto social;<br>
-        • Proporcionar a prática esportiva para fortalecer e prevenir que os
-        adolescentes não fiquem em situações de vulnerabilidade social;<br>
-        Identificar os benefícios físicos e mentais das artes marciais no
-        público-alvo.
-      </p>
+      <h5 id="titulo1"><%=@frontPanel[0].titulo%></h5>
+      <input type="hidden" id="id1" value="<%=@frontPanel[0].id%>">
+      <div align="justify" id="conteudo1" class="padding:10px">
+        <%=@frontPanel[0].conteudo%>
+      </div>
     </div>
     <div class="col s4">
       <h5>Galeria</h5>
@@ -39,16 +100,26 @@
   </div>
   <div class="row">
     <div class="col s4">
-      <h5>Dicas e Informações</h5>
-      <p align="justify">Estimular os alunos do ensino técnico/integrado, do ensino superior, dos funcionários do Instituto Federal e da comunidade externa a vivenciaremos benefícios das artes marciais em suas vidas e nas suas aulas de educação física</p>
+      <h5 id="titulo2"><%=@frontPanel[1].titulo%></h5>
+      <input type="hidden" id="id2" value="<%=@frontPanel[1].id%>">
+      <div id="conteudo2" align="justify">
+        <%=(@frontPanel[1].conteudo).html_safe.gsub(/\n/, '<br>')%>
+      </div>
     </div>
     <div class="col s4">
-      <h5>Vídeos JJ & Thay</h5>
-      <p align="justify">Estimular os alunos do ensino técnico/integrado, do ensino superior, dos funcionários do Instituto Federal e da comunidade externa a vivenciaremos benefícios das artes marciais em suas vidas e nas suas aulas de educação física</p>
+      <h5 id="titulo3"><%=@frontPanel[2].titulo%></h5>
+      <input type="hidden" id="id3" value="<%=@frontPanel[2].id%>">
+      <div id="conteudo3" align="justify">
+        <%=@frontPanel[2].conteudo%>
+      </div>
     </div>
     <div class="col s4">
-      <h5>Mural da Comunicação</h5>
-      <p align="justify">Estimular os alunos do ensino técnico/integrado, do ensino superior, dos funcionários do Instituto Federal e da comunidade externa a vivenciaremos benefícios das artes marciais em suas vidas e nas suas aulas de educação física</p>
+      <h5 id="titulo4"><%=@frontPanel[3].titulo%></h5>
+      <input type="hidden" id="id4" value="<%=@frontPanel[3].id%>">
+      <div id="conteudo4" align="justify">
+        <%=@frontPanel[3].conteudo%>
+      </div>
     </div>
   </div>
 </div>
+<%end%>
