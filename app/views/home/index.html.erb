@@ -1,4 +1,5 @@
 <script type="text/javascript">
+
 function save_front_panel_content(id,titulo=null,conteudo=null){
   token = $('input[name="authenticity_token"]').val();
   if(titulo != null && id != null){
@@ -51,6 +52,7 @@ function save_front_panel_content(id,titulo=null,conteudo=null){
 
  $(function(){
    <%
+   #gerando de 1 a quatro para desenhar o js das divs
       (1..4).each do |n|
    %>
    //seção <%=n%>
@@ -65,9 +67,17 @@ function save_front_panel_content(id,titulo=null,conteudo=null){
    $('#conteudo<%=n%>').dblclick(function(){
      $(this).attr("contentEditable","true");
    });
+   $("#conteudo<%=n%>").keydown(function(e) {
+    if (e.keyCode == 13) {
+      console.log('apertou enter');
+      document.execCommand('insertHTML', false, '<br><br>');
+      return false;
+    }
+  });
    $('#conteudo<%=n%>').focusout(function(){
      $(this).removeAttr("contentEditable");
-     save_front_panel_content($('#id<%=n%>').val(),null,$('#conteudo<%=n%>').text());
+     console.log($('#conteudo<%=n%>')[0].outerHTML);
+     save_front_panel_content($('#id<%=n%>').val(),null,$('#conteudo<%=n%>').html());
    });
    <%
      end
@@ -80,8 +90,8 @@ function save_front_panel_content(id,titulo=null,conteudo=null){
     <div class="col s8" >
       <h5 id="titulo1"><%=@frontPanel[0].titulo%></h5>
       <input type="hidden" id="id1" value="<%=@frontPanel[0].id%>">
-      <div align="justify" id="conteudo1" class="padding:10px">
-        <%=@frontPanel[0].conteudo%>
+      <div align="justify" id="conteudo1" style="padding:8px;cursor:pointer">
+        <%=@frontPanel[0].conteudo.html_safe%>
       </div>
     </div>
     <div class="col s4">
