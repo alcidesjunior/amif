@@ -1,3 +1,4 @@
+<%if current_user.user_type==1%>
 <script type="text/javascript">
 
 function save_front_panel_content(id,titulo=null,conteudo=null){
@@ -84,6 +85,7 @@ function save_front_panel_content(id,titulo=null,conteudo=null){
    %>
  });
 </script>
+<%end%>
 <%= form_for :frontPanel do |f|%>
 <div class="container">
   <div class="row">
