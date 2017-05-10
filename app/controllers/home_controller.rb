@@ -1,11 +1,12 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, :except=>[:blog]
   def index
     @galery = Galery.all
     @frontPanel = FrontPanel.all.order('id asc')
   end
-  def nl2br(s)
-    s.gsub(/\n/, '<br>')
+  def blog
+    @galery = Galery.all
+    @frontPanel = FrontPanel.all.order('id asc')
   end
   def saveFrontPanel
     if current_user.user_type == 1

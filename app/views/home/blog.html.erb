@@ -1,0 +1,44 @@
+<style>
+.parallax-container {
+      /*height: 700px;*/
+}
+.parallax-opacity{
+  opacity:0.6
+}
+.parallax-content{
+  background-color: rgba(255,255,255,0.7);padding:10px;border-radius: 4px
+}
+</style>
+<script type="text/javascript">
+  $('title').text('Blog - AMIF');
+</script>
+<nav>
+  <div class="nav-wrapper" >
+    <a href="#" data-tap-disabled="true" class="brand-logo center">Artes Marciais no IFCE - AMIF<br><small style="font-size:10px !important;margin-top:-40px !important;position:absolute;margin-left:-100px !important">Paraguassu Cavalcante - Coordenador do Projeto</small></a>
+    <ul id="nav-mobile" class="left hide-on-med-and-down">
+      <li><a href="#inicio">Início</a></li>
+      <li><a href="#galeria">Galeria</a></li>
+      <li><a href="#sobre">Sobre</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="parallax-container">
+  <div class="parallax"><img src="/assets/images/background-default.jpg"></div>
+  <div class="center black-text">
+           <h1 name="inicio"><%=@frontPanel[0].titulo%></h1>
+           <p align="justify" class="parallax-content container"><%=@frontPanel[0].conteudo.html_safe%></p>
+    </div>
+</div>
+<div class="parallax-container ancora" id="galeria">
+  <div class="parallax white"></div>
+  <div class="center black-text">
+    <h1>Galeria</h1>
+  </div>
+</div>
+<div class="parallax-container" id="sobre">
+  <div class="parallax green lighten-5"></div>
+  <div class="center black-text">
+    <h1>Sobre</h1>
+  </div>
+</div>

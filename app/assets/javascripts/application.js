@@ -16,6 +16,15 @@
 //= require_tree .
 
 $(document).ready(function(){
+  $('.parallax').parallax();
+  var $doc = $('html, body');
+  $('a').click(function() {
+    $doc.animate({
+        scrollTop: $( $.attr(this, 'href') ).offset().top
+    }, 870);
+    return false;
+  });
+
   $('.carousel').carousel({padding: 200  });
   autoplay()
   function autoplay() {
@@ -24,7 +33,7 @@ $(document).ready(function(){
   }
   $('input[type="tel"]').mask('(00)00000-0000');
   $(".dropdown-button").dropdown();
-  $(".brand-logo").sideNav();
+  $(".logo").sideNav();
   $('select').material_select();
   $('.modal').modal({
       dismissible: false
