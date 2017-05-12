@@ -17,8 +17,6 @@
 
 $(document).ready(function(){
   $('.logo').sideNav();
-  
-
   $('.carousel').carousel({padding: 200  });
   autoplay()
   function autoplay() {

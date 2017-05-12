@@ -1,6 +1,6 @@
 <style>
 .parallax-container {
-      /*height: 700px;*/
+      height: 650px;
 }
 .parallax-opacity{
   opacity:0.6
@@ -12,7 +12,13 @@
   margin: 20px;
 }
 .parallax-min{
-  width:600px
+  width:600px;
+  background-color: rgba(255,255,255,0.4);
+  padding:20px;
+  margin-top:-50px
+}
+.left{
+  margin-left: 40px
 }
 </style>
 <script type="text/javascript">
@@ -29,17 +35,23 @@
   </div>
 </nav>
 
-<div class="parallax-container">
+<div class="parallax-container" id="inicio">
   <div class="parallax parallax-opacity"><img src="/assets/images/background-default.jpg"></div>
-  <div class="center black-text parallax-content parallax-min">
+  <div class="center black-text parallax-min container left">
            <h1 name="inicio"><%=@frontPanel[0].titulo%></h1>
            <p align="justify" ><%=@frontPanel[0].conteudo.html_safe%></p>
     </div>
 </div>
-<div class="parallax-container ancora" id="galeria">
+<div class="parallax-container" id="galeria">
   <div class="parallax white"></div>
   <div class="center black-text">
     <h1>Galeria</h1>
+    <div class="carousel slider carousel-slider">
+      <%@galery.each do |g|%>
+      <a class="carousel-item"><img src="<%=g.imagem.url%>" ></a>
+      <%end%>
+    </div>
+
   </div>
 </div>
 <div class="parallax-container" id="sobre">
@@ -47,4 +59,7 @@
   <div class="center black-text">
     <h1>Sobre</h1>
   </div>
+</div>
+<div class="fixed-action-btn vertical" id="upToHome" style="display:none">
+  <a href="#inicio" class="btn-floating btn-large waves-effect waves-light blue anchor right"><i class="material-icons">arrow_upward</i></a>
 </div>
