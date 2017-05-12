@@ -48,7 +48,7 @@
     <h1>Galeria</h1>
     <div class="carousel slider carousel-slider">
       <%@galery.each do |g|%>
-      <a class="carousel-item" style="height:600px !important"><img src="<%=g.imagem.url(:medium)%>" ></a>
+      <a class="carousel-item" style="height:600px !important"><img src="<%=g.imagem.url%>" ></a>
       <%end%>
     </div>
 
