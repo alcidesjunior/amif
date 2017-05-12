@@ -17,15 +17,7 @@
 
 $(document).ready(function(){
   $('.logo').sideNav();
-  $("html").niceScroll();
-  $('.parallax').parallax();
-  var $doc = $('html, body');
-  $('a').click(function() {
-    $doc.animate({
-        scrollTop: $( $.attr(this, 'href') ).offset().top
-    }, 870);
-    return false;
-  });
+  
 
   $('.carousel').carousel({padding: 200  });
   autoplay()
