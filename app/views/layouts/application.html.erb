@@ -52,7 +52,7 @@
     </ul>
     <nav>
       <div class="nav-wrapper">
-        <a  class="brand-logo logo" data-activates="slide-out" style="margin-left:15px;cursor:pointer"><i class="material-icons md-48">menu</i>AMIF</a>
+        <a class="brand-logo logo" data-activates="slide-out" style="margin-left:15px;cursor:pointer"><i class="material-icons md-48">menu</i>AMIF</a>
         <ul class="right hide-on-med-and-down">
           <li><a href="#"><%= current_user.email %></a></li>
           <!-- <li><a href="badges.html">Components</a></li> -->
@@ -64,6 +64,7 @@
     <!-- FIM DROPDOWN MENU CONFIGURAÇÕE -->
   <% end %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <script src="http://areaaperta.com/nicescroll/js/jquery.nicescroll.min.js"></script>
     <%= yield %>
     <% if notice %>
 <script type="text/javascript">

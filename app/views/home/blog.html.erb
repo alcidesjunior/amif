@@ -6,7 +6,13 @@
   opacity:0.6
 }
 .parallax-content{
-  background-color: rgba(255,255,255,0.7);padding:10px;border-radius: 4px
+  background-color: rgba(255,255,255,0.4);
+  padding:10px;
+  border-radius: 4px;
+  margin: 20px;
+}
+.parallax-min{
+  width:600px
 }
 </style>
 <script type="text/javascript">
@@ -24,10 +30,10 @@
 </nav>
 
 <div class="parallax-container">
-  <div class="parallax"><img src="/assets/images/background-default.jpg"></div>
-  <div class="center black-text">
+  <div class="parallax parallax-opacity"><img src="/assets/images/background-default.jpg"></div>
+  <div class="center black-text parallax-content parallax-min">
            <h1 name="inicio"><%=@frontPanel[0].titulo%></h1>
-           <p align="justify" class="parallax-content container"><%=@frontPanel[0].conteudo.html_safe%></p>
+           <p align="justify" ><%=@frontPanel[0].conteudo.html_safe%></p>
     </div>
 </div>
 <div class="parallax-container ancora" id="galeria">

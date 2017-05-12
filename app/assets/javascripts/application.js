@@ -16,6 +16,8 @@
 //= require_tree .
 
 $(document).ready(function(){
+  $('.logo').sideNav();
+  $("html").niceScroll();
   $('.parallax').parallax();
   var $doc = $('html, body');
   $('a').click(function() {
@@ -33,12 +35,10 @@ $(document).ready(function(){
   }
   $('input[type="tel"]').mask('(00)00000-0000');
   $(".dropdown-button").dropdown();
-  $(".logo").sideNav();
   $('select').material_select();
   $('.modal').modal({
       dismissible: false
     });
-  //  $('ul.tabs').tabs('select_tab', 'tab_id');
   $('ul.tabs').tabs();
   $('.submit_false').on('keyup keypress', function(e) {
     var keyCode = e.keyCode || e.which;
