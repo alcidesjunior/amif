@@ -3,6 +3,7 @@ $primary-color: color("blue-grey","darken-2") !default;
 $secondary-color: color("green", "accent-4") !default;
 @import 'materialize';
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
+@import "blog";
 picture{
   margin:80px;
 }

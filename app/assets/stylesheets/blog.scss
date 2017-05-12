@@ -1,0 +1,29 @@
+.parallax-container {
+      height: 600px;
+}
+.parallax-opacity{
+  opacity:0.6
+}
+.parallax-content{
+  background-color: rgba(255,255,255,0.4);
+  padding:10px;
+  border-radius: 4px;
+  margin: 20px;
+}
+.parallax-min{
+  width:600px;
+  background-color: rgba(255,255,255,0.4);
+  padding:20px;
+  margin-top:-50px
+}
+.left{
+  margin-left: 40px
+}
+.carousel-item{
+  .img{
+    margin: auto;
+    width: 80% !important;
+    height: 500px;
+    padding: 10px
+  }
+}

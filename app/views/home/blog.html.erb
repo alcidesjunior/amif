@@ -1,26 +1,5 @@
 <style>
-.parallax-container {
-      width: 100%;
-      height: 100%;
-}
-.parallax-opacity{
-  opacity:0.6
-}
-.parallax-content{
-  background-color: rgba(255,255,255,0.4);
-  padding:10px;
-  border-radius: 4px;
-  margin: 20px;
-}
-.parallax-min{
-  width:600px;
-  background-color: rgba(255,255,255,0.4);
-  padding:20px;
-  margin-top:-50px
-}
-.left{
-  margin-left: 40px
-}
+
 </style>
 <script type="text/javascript">
   $('title').text('Blog - AMIF');
@@ -47,9 +26,9 @@
   <div class="parallax white"></div>
   <div class="center black-text">
     <h1>Galeria</h1>
-    <div class="carousel slider carousel-slider">
+    <div class="carousel slider carousel-slider container">
       <%@galery.each do |g|%>
-      <a class="carousel-item" style="height:600px !important"><img src="<%=g.imagem.url%>" ></a>
+      <a class="carousel-item" ><img class="img" src="<%=g.imagem.url%>" ></a>
       <%end%>
     </div>
 

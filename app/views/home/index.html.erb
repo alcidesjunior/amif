@@ -115,21 +115,21 @@ function save_front_panel_content(id,titulo=null,conteudo=null){
       <h5 id="titulo2"><%=@frontPanel[1].titulo%></h5>
       <input type="hidden" id="id2" value="<%=@frontPanel[1].id%>">
       <div id="conteudo2" align="justify">
-        <%=(@frontPanel[1].conteudo).html_safe.gsub(/\n/, '<br>')%>
+        <%=(@frontPanel[1].conteudo).html_safe%>
       </div>
     </div>
     <div class="col s4">
       <h5 id="titulo3"><%=@frontPanel[2].titulo%></h5>
       <input type="hidden" id="id3" value="<%=@frontPanel[2].id%>">
       <div id="conteudo3" align="justify">
-        <%=@frontPanel[2].conteudo%>
+        <%=(@frontPanel[2].conteudo).html_safe%>
       </div>
     </div>
     <div class="col s4">
       <h5 id="titulo4"><%=@frontPanel[3].titulo%></h5>
       <input type="hidden" id="id4" value="<%=@frontPanel[3].id%>">
       <div id="conteudo4" align="justify">
-        <%=@frontPanel[3].conteudo%>
+        <%=(@frontPanel[3].conteudo).html_safe%>
       </div>
     </div>
   </div>
