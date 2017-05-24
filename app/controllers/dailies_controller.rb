@@ -1,9 +1,11 @@
 class DailiesController < ApplicationController
   before_action :authenticate_user!
   # before_action :set_atletum, only: [:show, :edit, :update, :destroy]
+  def index
+    @daily = Daily.where('dailies.created_at >= ?', Time.zone.now.beginning_of_day)
+  end
   def new
     @atletas = Atletum.where(:modalidades_id=>current_user.modalidades_id).order('nome ASC')
-
   end
   def edit
     @daily = Daily.where('dailies.created_at >= ?', Time.zone.now.beginning_of_day)#joins("inner join atleta on atleta.id=dailies.atletas_id and dailies.created_at >= '#{Time.zone.now.beginning_of_day}'")
