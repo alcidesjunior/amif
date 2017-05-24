@@ -1,0 +1,42 @@
+<h1>Diário de frequência</h1>
+<ul class="collection ">
+  <%=form_for :dialies do |f|%>
+  <%@atletas.each_with_index do |atleta,index|%>
+    <li class="collection-item">
+      <div class="row">
+        <div class="col s6">
+          <%=atleta.nome%>
+          <%=atleta.sobrenome%>
+        </div>
+        <div class="col s4">
+          <select id="status_<%=index%>" data-id="<%=atleta.id%>"
+            onchange='chamada($("#status_<%=index%>").attr("data-id"),$("#status_<%=index%>").val())'>
+            <option>Selecione</option>
+            <option value="0" >Presente</option>
+            <option value="1">Faltou</option>
+          </select>
+        </div>
+      </div>
+    </li>
+    <%end%>
+</ul>
+<%end%>
+<script type="text/javascript">
+  function chamada(atleta_id,status){
+    token = $('input[name="authenticity_token"]').val();
+    $.ajax({
+      method:"POST",
+      url:"/dailies",
+      data:{
+        "authenticity_token":token,
+        "dailies[atletum_id]":atleta_id,
+        "dailies[status]":status
+      },
+      beforeSend:function(){},
+      complete:function(){},
+      success:function(e){
+
+      }
+    });
+  }
+</script>

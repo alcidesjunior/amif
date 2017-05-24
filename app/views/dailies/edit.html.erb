@@ -1,0 +1,43 @@
+<h1>Diário de frequência</h1>
+<ul class="collection ">
+  <%=form_for :dialies do |f|%>
+  <%@daily.each_with_index do |daily,index|%>
+    <li class="collection-item">
+      <div class="row">
+        <div class="col s6">
+          <%=daily.atletum.nome%>
+          <%=daily.atletum.sobrenome%>
+        </div>
+        <div class="col s4">
+          <select id="status_<%=index%>" data-id="<%=daily.id%>"
+            onchange='chamada(<%=daily.atletum_id%>,$("#status_<%=index%>").val(),<%=daily.id%>)'>
+            <option>Selecione</option>
+            <option value="0" <%= "selected" if daily.status == 0%>>Presente</option>
+            <option value="1" <%= "selected" if daily.status == 1%>>Faltou</option>
+          </select>
+        </div>
+      </div>
+    </li>
+    <%end%>
+</ul>
+<%end%>
+<script type="text/javascript">
+  function chamada(atleta_id,status,daily_id){
+    token = $('input[name="authenticity_token"]').val();
+    $.ajax({
+      method:"POST",
+      url:"/dailies",
+      data:{
+        "authenticity_token":token,
+        "dailies[atletum_id]":atleta_id,
+        "dailies[status]":status,
+        "dailies[daily_id]":daily_id
+      },
+      beforeSend:function(){},
+      complete:function(){},
+      success:function(e){
+
+      }
+    });
+  }
+</script>

@@ -24,11 +24,15 @@ class ProfessorsController < ApplicationController
   def new
     @professor = Professor.new if current_user.user_type == 1
     @bgModals = bgImages()
+    @users = User.all
+    @modalidade = Modalidade.all
   end
 
   # GET /professors/1/edit
   def edit
     @bgModals = bgImages()
+    @users = User.all
+    @modalidade = Modalidade.all
   end
 
   # POST /professors
@@ -81,6 +85,6 @@ class ProfessorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def professor_params
-      params.require(:professor).permit(:nome, :sobrenome, :modalidades_id, :graduacao)
+      params.require(:professor).permit(:nome, :sobrenome, :modalidades_id, :graduacao,:users_id)
     end
 end
