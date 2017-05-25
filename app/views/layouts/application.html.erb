@@ -12,9 +12,7 @@
   <style media="screen">
     body{
       background-size: contain;
-      /*background-image: url('/assets/images/background-default.jpg');*/
       background-position: center;
-      /*opacity: */
     }
   </style>
   <body>
@@ -24,7 +22,6 @@
       <li>
         <div class="userView">
         <div class="background">
-          <!-- <img src="<%=root_url%>assets/images/logo.jpg" width="75"> -->
         </div>
           <a href="/"><center><img class="circle" src="<%=current_user.foto%>"></center></a>
           <a href="/" align="center"><span class="black-text name"><%="#{current_user.nome} #{current_user.sobrenome}"%></span></a>
@@ -67,7 +64,6 @@
     <!-- FIM DROPDOWN MENU CONFIGURAÇÕE -->
   <% end %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  <!-- <script src="http://areaaperta.com/nicescroll/js/jquery.nicescroll.min.js"></script> -->
     <%= yield %>
     <% if notice %>
 <script type="text/javascript">
