@@ -4,22 +4,60 @@ $secondary-color: color("green", "accent-4") !default;
 @import 'materialize';
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
 @import "blog";
-$break-small: 412px;
-$break-large: 1200px;
-.logo-login{
-  @media screen and (max-width: $break-small){
-    margin-top: 50px;
-    width: 200px;
+
+$desktop-width: 1200px;
+$mobile-width: 767px;
+$mobile-xs-width: 357px;
+
+
+@mixin desktop {
+  @media only screen and (min-width: #{$desktop-width}) {
+    @content;
   }
-  @media screen and (min-width: $break-large){
-    margin-top:50px;
-    width: 350px;
+}
+@mixin tablet {
+  @media only screen and (min-width: #{$mobile-width}) and (max-width: #{$desktop-width}) {
+    @content;
+  }
+}
+@mixin mobile {
+  @media only screen and (max-width: #{$mobile-width}) {
+    @content;
+  }
+}
+@mixin mobile-xs {
+  @media only screen and (max-width: #{$mobile-xs-width}) {
+    @content;
+  }
+}
+.m6{
+  @include tablet{
+    width:100% !important;
+  }
+}
+.logo-login{
+  @include mobile{
+    width: 200px;
+    display: block;
+    margin:0 auto;
+  }
+  @include tablet{
+    width: 200px;
+    display: block;
+    margin: 0 auto;
+  }
+  @include desktop{
+    width: 470px;
+    display: block;
+    margin: 0 auto;
   }
 }
 .login{
-  @media screen and (min-width: $break-large){
-    padding:100px;
-    margin-top: 55px;
+  @include mobile{
+    margin-top:70px;
+  }
+  @include desktop{
+    margin-top: 180px;
   }
 }
 .logo{
