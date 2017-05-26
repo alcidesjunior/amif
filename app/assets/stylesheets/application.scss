@@ -4,8 +4,23 @@ $secondary-color: color("green", "accent-4") !default;
 @import 'materialize';
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
 @import "blog";
-picture{
-  margin:80px;
+$break-small: 412px;
+$break-large: 1200px;
+.logo-login{
+  @media screen and (max-width: $break-small){
+    margin-top: 50px;
+    width: 200px;
+  }
+  @media screen and (min-width: $break-large){
+    margin-top:50px;
+    width: 350px;
+  }
+}
+.login{
+  @media screen and (min-width: $break-large){
+    padding:100px;
+    margin-top: 55px;
+  }
 }
 .logo{
   width: 400px !important;
@@ -13,15 +28,16 @@ picture{
   margin-right: auto !important;
   margin-left: auto !important;
 }
+picture{
+  margin:80px;
+}
 .half_display{
   margin-top:10%
 }
 body{
   // background-color: lightgray
 }
-.login{
-  padding:100px;
-  border-radius:10px;
-  background-color:white;
-  box-shadow: 1px 1px 8px 1px #191919
+
+.col.m12 > .btn {
+ width: 100%;
 }
