@@ -60,6 +60,9 @@ $mobile-xs-width: 357px;
     margin-top: 180px;
   }
 }
+.page-footer{
+  // margin-bottom: 50px !important;
+}
 .logo{
   width: 400px !important;
   display: block;
@@ -72,10 +75,6 @@ picture{
 .half_display{
   margin-top:10%
 }
-body{
-  // background-color: lightgray
-}
-
 .col.m12 > .btn {
  width: 100%;
 }
