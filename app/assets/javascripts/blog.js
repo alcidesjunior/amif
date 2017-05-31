@@ -1,5 +1,5 @@
 
-$(document).ready(function(){
+$(function(){
   $("html").niceScroll();
   $('.parallax').parallax();
   var $doc = $('html, body');
@@ -19,6 +19,7 @@ $(document).ready(function(){
      }
      lastScrollTop = st;
   });
+  $('.slider').carousel({full_width: true});
   // $('.slider').carousel({fullWidth: true});
 });
-$(function(){ $('.slider').carousel({full_width: true}); });
+// $(function(){ $('.slider').carousel({full_width: true}); });

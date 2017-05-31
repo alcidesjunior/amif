@@ -26,12 +26,13 @@
   <div class="parallax white"></div>
   <div class="center black-text">
     <h1>Galeria</h1>
+    <%if @galery.length>0%>
     <div class="carousel slider carousel-slider container">
       <%@galery.each do |g|%>
       <a class="carousel-item" ><img class="img" src="<%=g.imagem.url%>" ></a>
       <%end%>
     </div>
-
+    <%end%>
   </div>
 </div>
 <div class="parallax-container" id="sobre">
