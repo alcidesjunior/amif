@@ -16,7 +16,7 @@
 //= require_tree .
 
 $(document).ready(function(){
-  $('.logo').sideNav();
+  $('.brand-logo').sideNav();
   $('.carousel').carousel({padding: 200  });
   autoplay()
   function autoplay() {
