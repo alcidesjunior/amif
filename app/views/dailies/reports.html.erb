@@ -1,0 +1,76 @@
+<div class="container">
+  <h1>Relatório</h1>
+  <%=form_for(:reports,:method=>'post') do |f|%>
+  <div class="row">
+    <div class="col l4">
+      <input type="text" name="reports[inicio]" class="datepicker" required="" placeholder="Selecione uma data aqui">
+    </div>
+    <div class="col l4">
+      <input type="text" name="reports[fim]" class="datepicker" required="" placeholder="Selecione uma data aqui">
+    </div>
+    <div class="col l3">
+      <%=f.submit 'Gerar', :class=>'btn blue darken-4'%>
+    </div>
+  </div>
+  <%end%>
+  <style media="screen">
+    .border{
+      border: 1px solid black;
+    }
+  </style>
+  <%if @reports != 0%>
+  <div class="row">
+      <div class="col s12">
+        <ul class="tabs">
+          <li class="tab col s3"><a class="active"  href="#test1">Por data</a></li>
+          <li class="tab col s3"><a href="#test2">Geral</a></li>
+        </ul>
+      </div>
+      <div id="test1" class="col s12">
+        <table class="striped">
+          <tr>
+            <th>Data</th>
+            <th>Nome</th>
+            <th>Status</th>
+            <!-- <th>Total Presenças</th>
+            <th>Total Faltas</th> -->
+          </tr>
+          <%frequencia = ["Presente","Faltou"]%>
+          <%cor = ["green","red"]%>
+          <%@reports.each do |r|%>
+            <tr>
+              <td>
+                <%=r.created_at.strftime("%d/%m/%Y")%>
+              </td>
+              <td>
+                <%="#{r.atletum.nome} #{r.atletum.sobrenome}"%>
+              </td>
+              <td>
+                <%=frequencia[r.status]%>
+              </td>
+            </tr>
+          <%end%>
+        </table>
+      </div>
+      <div id="test2" class="col s12">
+        <table class="striped">
+          <tr>
+            <th>Nome</th>
+            <th>Presenças</th>
+            <th>Faltas</th>
+          </tr>
+          <%@atletas.each do |atleta|%>
+          <tr>
+            <td><%="#{atleta.nome} #{atleta.sobrenome}"%></td>
+            <td><%=Daily.where(:created_at => @inicio.beginning_of_day..@fim.end_of_day,:atletum_id=>atleta.id,:status=>0).count()%></td>
+            <td><%=Daily.where(:created_at => @inicio.beginning_of_day..@fim.end_of_day,:atletum_id=>atleta.id,:status=>1).count()%></td>
+          </tr>
+        <%end%>
+      </table>
+      </div>
+    </div>
+
+
+
+<%end%>
+</div>

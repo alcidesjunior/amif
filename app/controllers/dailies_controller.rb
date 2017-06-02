@@ -30,8 +30,23 @@ class DailiesController < ApplicationController
       Daily.create(dailies_param)
     end
   end
+  def reports
+    @reports = 0
+  end
+  def reports_list
+    @inicio = Date.parse(reports_param[:inicio].gsub("/","-"))
+    @fim = Date.parse(reports_param[:fim].gsub("/","-"))
+    @reports = Daily.where(:created_at => @inicio.beginning_of_day..@fim.end_of_day).order('"dailies".created_at')
+    @atletas = Atletum.where(:modalidades_id=>current_user.modalidades_id).order('nome ASC')
+    render "dailies/reports"
+  end
   private
   def dailies_param
-    params.require(:dailies).permit(:status, :atletum_id, :professor_id,:daily_id, :modalidade_id)
+    params.require(:dailies).permit(:status, :atletum_id, :professor_id,:daily_id, :modalidade_id,:inicio,:fim)
   end
+  private
+  def reports_param
+    params.require(:reports).permit(:inicio, :fim)
+  end
+
 end
