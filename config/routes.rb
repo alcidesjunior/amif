@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "home#index"
+  root "home#blog"
   resources :galeries
   resources :admins
   resources :modalidades
