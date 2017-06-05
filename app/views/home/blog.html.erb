@@ -25,56 +25,65 @@
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
   </nav>
-<div class="parallax-container" id="inicio">
-  <div class="parallax parallax-opacity"><img src="/assets/images/background-default.jpg"></div>
-  <div class="center black-text parallax-min container left">
-    <h1 name="inicio"><%=@frontPanel[0].titulo%></h1>
-    <p align="justify" ><%=@frontPanel[0].conteudo.html_safe%></p>
-  </div>
-</div>
-<div class="parallax-container" id="galeria">
-  <div class="parallax white"></div>
-  <div class="center black-text">
-    <h1>Galeria</h1>
-    <%if @galery.length>0%>
-    <div class="carousel slider carousel-slider container">
-      <%@galery.each do |g|%>
-      <a class="carousel-item" ><img class="img" src="<%=g.imagem.url%>" ></a>
-      <%end%>
-    </div>
-    <%end%>
-  </div>
-</div>
-<div class="parallax-container" id="page3">
-  <div class="parallax green lighten-5"></div>
-  <div class="center black-text">
-    <h1><%=@frontPanel[1].titulo%></h1>
+  <div class="parallax-container" id="inicio">
+    <div class="parallax parallax-opacity"><img src="/assets/images/background-default.jpg"></div>
+    <div class="center black-text container">
+      <h1 name="inicio"><%=@frontPanel[0].titulo%></h1>
       <div class="row">
         <div class="push-l2 col l8">
-
-          <p class="article"><%=@frontPanel[1].conteudo.html_safe%></p>
+          <p align="justify" ><%=@frontPanel[0].conteudo.html_safe%></p>
         </div>
-      </div>
-  </div>
-</div>
-<div class="parallax-container" id="page4">
-  <div class="parallax green lighten-5"></div>
-  <div class="center black-text">
-    <h1><%=@frontPanel[2].titulo%></h1>
-    <div class="row">
-      <div class="push-l2 col l8">
-        <p align="justify" ><%=@frontPanel[2].conteudo.html_safe%></p>
       </div>
     </div>
   </div>
-</div>
-<div class="parallax-container" id="page5">
-  <div class="parallax green lighten-5"></div>
-  <div class="center black-text">
-    <h1><%=@frontPanel[3].titulo%></h1>
-    <p align="justify" ><%=@frontPanel[3].conteudo.html_safe%></p>
+  <div class="parallax-container" id="galeria">
+    <div class="parallax white"></div>
+    <div class="center black-text">
+      <h1>Galeria</h1>
+      <%if @galery.length>0%>
+      <div class="carousel slider carousel-slider container">
+        <%@galery.each do |g|%>
+        <a class="carousel-item" ><img class="img" src="<%=g.imagem.url%>" ></a>
+        <%end%>
+      </div>
+      <%end%>
+    </div>
   </div>
-</div>
+  <div class="parallax-container" id="page3">
+    <div class="parallax green lighten-5"></div>
+    <div class="center black-text">
+      <h1><%=@frontPanel[1].titulo%></h1>
+        <div class="row">
+          <div class="push-l2 col l8">
+
+            <p class="article"><%=@frontPanel[1].conteudo.html_safe%></p>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="parallax-container" id="page4">
+    <div class="parallax green lighten-5"></div>
+    <div class="center black-text">
+      <h1><%=@frontPanel[2].titulo%></h1>
+      <div class="row">
+        <div class="push-l2 col l8">
+          <p align="justify" ><%=@frontPanel[2].conteudo.html_safe%></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="parallax-container" id="page5">
+    <div class="parallax green lighten-5"></div>
+    <div class="center black-text">
+      <h1><%=@frontPanel[3].titulo%></h1>
+      <div class="row">
+        <div class="push-l2 col l8">
+          <p align="justify" ><%=@frontPanel[3].conteudo.html_safe%></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <div class="container">
   <div class="fixed-action-btn vertical" id="upToHome" style="display:none">
     <a href="#inicio" class="btn-floating btn-large waves-effect waves-light blue anchor right"><i class="material-icons">arrow_upward</i></a>
