@@ -1,35 +1,36 @@
-<h1>Usuários</h1>
-
-<table class="bordered">
-  <thead>
-    <tr>
-      <th>Foto</th>
-      <th>Nome</th>
-      <th>Sobrenome</th>
-      <th>Email</th>
-      <th>Modalidades</th>
-      <th>Nível de usuário</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @admins.each do |admin| %>
+<div class="container">
+  <h1>Usuários</h1>
+  <table class="bordered">
+    <thead>
       <tr>
-        <td style="width: 70px"><img src="<%=admin.foto%>" width="50%"></td>
-        <td><%= admin.nome %></td>
-        <td><%= admin.sobrenome %></td>
-        <td><%= admin.email %></td>
-        <td><%= Modalidade.find_by_id(admin.modalidades_id).nome %></td>
-        <td><%= @user_type[admin.user_type] %></td>
-        <td><a href="/admins/<%=admin.id%>/edit">Editar</a></td>
-        
+        <th>Foto</th>
+        <th>Nome</th>
+        <th>Sobrenome</th>
+        <th>Email</th>
+        <th>Modalidades</th>
+        <th>Nível de usuário</th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-<div class="fixed-action-btn vertical ">
-  <a href="/admins/new" class="btn-floating btn-large waves-effect waves-light green right"><i class="material-icons">add</i></a>
+    <tbody>
+      <% @admins.each do |admin| %>
+        <tr>
+          <td style="width: 70px"><img src="<%=admin.foto%>" width="50%"></td>
+          <td><%= admin.nome %></td>
+          <td><%= admin.sobrenome %></td>
+          <td><%= admin.email %></td>
+          <td><%= Modalidade.find_by_id(admin.modalidades_id).nome %></td>
+          <td><%= @user_type[admin.user_type] %></td>
+          <td><a href="/admins/<%=admin.id%>/edit">Editar</a></td>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+  <div class="fixed-action-btn vertical ">
+    <a href="/admins/new" class="btn-floating btn-large waves-effect waves-light green right"><i class="material-icons">add</i></a>
+  </div>
 </div>

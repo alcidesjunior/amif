@@ -1,37 +1,37 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Atletas</h1>
-<table class="striped">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Sobrenome</th>
-      <th>Data nascimento</th>
-      <th>Sexo</th>
-      <th>Modalidade</th>
-      <th>Professor</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @atleta.each do |atletum| %>
+<div class="container">
+  <h1>Atletas</h1>
+  <table class="striped">
+    <thead>
       <tr>
-        <td><%= atletum.nome %></td>
-        <td><%= atletum.sobrenome %></td>
-        <td><%= atletum.data_nascimento.strftime("%d/%m/%Y") %></td>
-        <td><%= atletum.sexo %></td>
-        <td><%= Modalidade.find_by_id(atletum.modalidades_id).nome %></td>
-        <td><%= "#{Professor.find_by_id(atletum.professors_id).nome} #{Professor.find_by_id(atletum.professors_id).sobrenome}" %></td>
-        <td><%= link_to 'Ver', atletum %></td>
-        <td><%= link_to 'Editar', edit_atletum_path(atletum) %></td>
-        <td><%= link_to 'Excluir', atletum, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+        <th>Nome</th>
+        <th>Sobrenome</th>
+        <th>Data nascimento</th>
+        <th>Sexo</th>
+        <th>Modalidade</th>
+        <th>Professor</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= will_paginate @collection %>
-<br>
-<div class="fixed-action-btn vertical ">
-  <a href="/atleta/new" class="btn-floating btn-large waves-effect waves-light green right"><i class="material-icons">add</i></a>
+    </thead>
+
+    <tbody>
+      <% @atleta.each do |atletum| %>
+        <tr>
+          <td><%= atletum.nome %></td>
+          <td><%= atletum.sobrenome %></td>
+          <td><%= atletum.data_nascimento.strftime("%d/%m/%Y") %></td>
+          <td><%= atletum.sexo %></td>
+          <td><%= Modalidade.find_by_id(atletum.modalidades_id).nome %></td>
+          <td><%= "#{Professor.find_by_id(atletum.professors_id).nome} #{Professor.find_by_id(atletum.professors_id).sobrenome}" %></td>
+          <td><%= link_to 'Ver', atletum %></td>
+          <td><%= link_to 'Editar', edit_atletum_path(atletum) %></td>
+          <td><%= link_to 'Excluir', atletum, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @collection %>
+  <br>
+  <div class="fixed-action-btn vertical ">
+    <a href="/atleta/new" class="btn-floating btn-large waves-effect waves-light green right"><i class="material-icons">add</i></a>
+  </div>
 </div>

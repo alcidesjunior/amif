@@ -1,35 +1,37 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Professores</h1>
+<div class="container">
 
-<table class="striped">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Sobrenome</th>
-      <th>Modalidade</th>
-      <th>Graduação</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <h1>Professores</h1>
 
-  <tbody>
-    <% @professors.each do |professor| %>
+  <table class="striped">
+    <thead>
       <tr>
-        <td><%= professor.nome %></td>
-        <td><%= professor.sobrenome %></td>
-        <td><%= Modalidade.find_by_id(professor.modalidades_id).nome if Modalidade.find_by_id(professor.modalidades_id) != nil%></td>
-        <td><%= professor.graduacao %></td>
-        <td><%= link_to 'Ver', professor %></td>
-        <td><%= link_to 'Editar', edit_professor_path(professor) %></td>
-        <!-- <td><%= link_to 'Excluir', professor, method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' } %></td> -->
-        <td><%= link_to 'Desabilitar', "/professors/disable/#{professor.id}"%></td>
+        <th>Nome</th>
+        <th>Sobrenome</th>
+        <th>Modalidade</th>
+        <th>Graduação</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-<div class="fixed-action-btn vertical ">
-  <a href="/professors/new" class="btn-floating btn-large waves-effect waves-light green right"><i class="material-icons">add</i></a>
+    <tbody>
+      <% @professors.each do |professor| %>
+        <tr>
+          <td><%= professor.nome %></td>
+          <td><%= professor.sobrenome %></td>
+          <td><%= Modalidade.find_by_id(professor.modalidades_id).nome if Modalidade.find_by_id(professor.modalidades_id) != nil%></td>
+          <td><%= professor.graduacao %></td>
+          <td><%= link_to 'Ver', professor %></td>
+          <td><%= link_to 'Editar', edit_professor_path(professor) %></td>
+          <!-- <td><%= link_to 'Excluir', professor, method: :delete, data: { confirm: 'Tem certeza que deseja excluir?' } %></td> -->
+          <td><%= link_to 'Desabilitar', "/professors/disable/#{professor.id}"%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+  <div class="fixed-action-btn vertical ">
+    <a href="/professors/new" class="btn-floating btn-large waves-effect waves-light green right"><i class="material-icons">add</i></a>
+  </div>
 </div>
