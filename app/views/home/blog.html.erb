@@ -4,25 +4,33 @@
 <script type="text/javascript">
   $('title').text('Blog - AMIF');
 </script>
-<nav>
-  <div class="nav-wrapper" >
-    <a href="#" data-tap-disabled="true" class="brand-logo center">Artes Marciais no IFCE - AMIF<br><small style="font-size:10px !important;margin-top:-40px !important;position:absolute;margin-left:-100px !important">Paraguassu Cavalcante - Coordenador do Projeto</small></a>
-    <ul id="nav-mobile" class="left hide-on-med-and-down">
-      <li><a href="#inicio" class="anchor"><%=@frontPanel[0].titulo%></a></li>
-      <li><a href="#galeria" class="anchor">Galeria</a></li>
-      <li><a href="#page3" class="anchor"><%=@frontPanel[1].titulo%></a></li>
-      <li><a href="#page4" class="anchor"><%=@frontPanel[2].titulo%></a></li>
-      <li><a href="#page5" class="anchor"><%=@frontPanel[3].titulo%></a></li>
-    </ul>
-  </div>
-</nav>
-
+  <nav>
+    <div class="nav-wrapper" >
+      <a href="#" data-tap-disabled="true" class="brand-logo hide-on-med-and-down center">Artes Marciais no IFCE - AMIF<br><small style="font-size:10px !important;margin-top:-40px !important;position:absolute;margin-left:-100px !important">Paraguassu Cavalcante - Coordenador do Projeto</small></a>
+      <ul id="nav-desktop" class="left hide-on-med-and-down fixed">
+        <li><a href="#inicio" class="anchor"><%=@frontPanel[0].titulo%></a></li>
+        <li><a href="#galeria" class="anchor">Galeria</a></li>
+        <li><a href="#page3" class="anchor"><%=@frontPanel[1].titulo%></a></li>
+        <li><a href="#page4" class="anchor"><%=@frontPanel[2].titulo%></a></li>
+        <li><a href="#page5" class="anchor"><%=@frontPanel[3].titulo%></a></li>
+      </ul>
+      <a href="#" data-tap-disabled="true" class="hide-on-large-only show-on-med-and-down center">Artes Marciais no IFCE - AMIF</a>
+      <ul id="nav-mobile" class="show-on-med-and-down side-nav">
+        <li><a href="#inicio" class="anchor"><%=@frontPanel[0].titulo%></a></li>
+        <li><a href="#galeria" class="anchor">Galeria</a></li>
+        <li><a href="#page3" class="anchor"><%=@frontPanel[1].titulo%></a></li>
+        <li><a href="#page4" class="anchor"><%=@frontPanel[2].titulo%></a></li>
+        <li><a href="#page5" class="anchor"><%=@frontPanel[3].titulo%></a></li>
+      </ul>
+      <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+  </nav>
 <div class="parallax-container" id="inicio">
   <div class="parallax parallax-opacity"><img src="/assets/images/background-default.jpg"></div>
   <div class="center black-text parallax-min container left">
-           <h1 name="inicio"><%=@frontPanel[0].titulo%></h1>
-           <p align="justify" ><%=@frontPanel[0].conteudo.html_safe%></p>
-    </div>
+    <h1 name="inicio"><%=@frontPanel[0].titulo%></h1>
+    <p align="justify" ><%=@frontPanel[0].conteudo.html_safe%></p>
+  </div>
 </div>
 <div class="parallax-container" id="galeria">
   <div class="parallax white"></div>
@@ -67,6 +75,8 @@
     <p align="justify" ><%=@frontPanel[3].conteudo.html_safe%></p>
   </div>
 </div>
-<div class="fixed-action-btn vertical" id="upToHome" style="display:none">
-  <a href="#inicio" class="btn-floating btn-large waves-effect waves-light blue anchor right"><i class="material-icons">arrow_upward</i></a>
+<div class="container">
+  <div class="fixed-action-btn vertical" id="upToHome" style="display:none">
+    <a href="#inicio" class="btn-floating btn-large waves-effect waves-light blue anchor right"><i class="material-icons">arrow_upward</i></a>
+  </div>
 </div>

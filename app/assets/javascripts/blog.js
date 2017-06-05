@@ -20,6 +20,7 @@ $(function(){
      lastScrollTop = st;
   });
   $('.slider').carousel({full_width: true});
+   $(".button-collapse").sideNav();
   // $('.slider').carousel({fullWidth: true});
 });
 // $(function(){ $('.slider').carousel({full_width: true}); });
