@@ -19,7 +19,10 @@ $(function(){
      }
      lastScrollTop = st;
   });
-  $('.slider').carousel({full_width: true});
+  $('.slider').carousel({
+    full_width: true,
+    duration: 5000
+  });
    $(".button-collapse").sideNav();
   // $('.slider').carousel({fullWidth: true});
 });
